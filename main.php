@@ -39,6 +39,11 @@ function is_anagram($originalString, $anagramCandidate){
             $dataSet[$letter] = $dataSet[$letter] - 1;
         }
     }
+    foreach ($dataSet as $check){
+        if ($check != 0){
+            return false;
+        }
+    }
     return true;
 }
 
@@ -46,3 +51,4 @@ echo invert_string('This is a test');
 echo "\n";
 var_dump(is_anagram('home', 'mohe'));
 var_dump(is_anagram('test', 'home'));
+var_dump(is_anagram('hooooome', 'mohe'));
