@@ -77,10 +77,11 @@ function can_be_rearranged_as_a_palindrome($originalString){
 
 echo invert_string('This is a test');
 echo "\n";
+echo "\nanagrams\n";
 var_dump(is_anagram('home', 'mohe'));
 var_dump(is_anagram('test', 'home'));
 var_dump(is_anagram('hooooome', 'mohe'));
-echo "palindromes\n";
+echo "\npalindromes\n";
 var_dump(can_be_rearranged_as_a_palindrome('home'));
 var_dump(can_be_rearranged_as_a_palindrome('aall'));
 var_dump(can_be_rearranged_as_a_palindrome('aalel'));
