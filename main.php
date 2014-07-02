@@ -47,8 +47,42 @@ function is_anagram($originalString, $anagramCandidate){
     return true;
 }
 
+function can_be_rearranged_as_a_palindrome($originalString){
+    $originalStringAsArray = str_split($originalString);
+    if (count($originalStringAsArray) == 1){
+        return true;
+    }
+    $dataSet = array();
+    foreach ($originalStringAsArray as $letter){
+        if (!isset($dataSet[$letter])){
+            $dataSet[$letter] = 1;
+        }
+        else {
+            $dataSet[$letter] = $dataSet[$letter] + 1;
+        }
+    }
+    $oneException = true;
+    foreach($dataSet as $numLetterRepetition){
+        if ((($numLetterRepetition % 2) != 0)){
+            if ($oneException){
+                $oneException = false;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 echo invert_string('This is a test');
 echo "\n";
 var_dump(is_anagram('home', 'mohe'));
 var_dump(is_anagram('test', 'home'));
 var_dump(is_anagram('hooooome', 'mohe'));
+echo "palindromes\n";
+var_dump(can_be_rearranged_as_a_palindrome('home'));
+var_dump(can_be_rearranged_as_a_palindrome('aall'));
+var_dump(can_be_rearranged_as_a_palindrome('aalel'));
+var_dump(can_be_rearranged_as_a_palindrome('aalll'));
+var_dump(can_be_rearranged_as_a_palindrome('aalllf'));
