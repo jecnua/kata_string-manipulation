@@ -10,9 +10,16 @@ function invert_string($invertMe){
     if (!is_string($invertMe)) {
         throw new \Exception('You need to pass a string');
     }
-    echo 'test';
-
+    $stringAsArray = str_split($invertMe);
+    $numOfLetters = count($stringAsArray);
+    $invertedArray = array();
+    while ($numOfLetters > 0){
+        $numOfLetters--;
+        $invertedArray[] = $stringAsArray[$numOfLetters];
+    }
+    return implode('',$invertedArray);
 }
 
-invert_string('This is a test');
-invert_string(array());
+
+
+echo invert_string('This is a test');
